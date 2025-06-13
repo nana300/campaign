@@ -1,0 +1,108 @@
+body {
+    font-family: "Noto Sans JP", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    background: url(images/bg-cover_02.jpg) left top fixed;
+    background-size: cover;
+    overflow-x: hidden;
+    /* 縦スクロールOK、横スクロール×　はみ出た部分を隠す */
+    margin: 0;
+    padding-left: 160px;
+    /* GIFの幅分だけ余白を作る */
+    /* background: #f0f0f0; */
+}
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    height: 200px;
+}
+
+.moving-gif {
+    position: absolute;
+    top: 450%;
+    transform: translateY(-50%);
+    width: 150px;
+    animation: moveRight 5s linear infinite;
+}
+
+@keyframes moveRight {
+    0% {
+        left: -200px;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+.content {
+    height: 1500px;
+    /* スクロールテスト用の高さ */
+    background: linear-gradient(to bottom, #f0f0f0, #ccc);
+}
+
+/* JAVA */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.container-camp {
+    max-width: 960px;
+    /* background-color: rgba(255, 253, 233, 1); */
+}
+
+.container-hero {
+    max-width: 990px;
+}
+
+.row {
+    width: 100%;
+    height: 100%;
+}
+
+/* ↓色 */
+.bg-mycolor-usi {
+    background-color: rgb(255, 254, 243);
+    border-radius: 30% 30% 0% 0%;
+}
+
+.bg-mycolororenge {
+    background-color: rgba(255, 171, 110, 1);
+}
+
+.bg-mycolor-kinari {
+    background-color: rgb(255, 254, 243);
+
+}
+
+.bg-mycolorlemon {
+    background-color: #FFF97B;
+}
+
+.bg-mycolor-mint {
+    background-color: rgb(184, 214, 171);
+}
+
+.bg-mycolor-poppy {
+    background-color: #ec701d;
+}
+
+.bg-how {
+    background-color: #fff;
+}
+
+
+.bg-how-inner-01 {
+    background: #ffffff;
+    padding: 10px 12px 30px;
+}
