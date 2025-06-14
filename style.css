@@ -9,11 +9,20 @@ body {
     overflow-x: hidden;
     /* 縦スクロールOK、横スクロール×　はみ出た部分を隠す */
     margin: 0;
-    padding-left: 160px;
-    /* GIFの幅分だけ余白を作る */
-    /* background: #f0f0f0; */
+    /* ↓追加するといい場合あり/画面の高さを保証 */
+    /* min-height: 100vh; */
+
 }
 
+/* レスポンシブ画像対応 */
+img.img-fluid {
+    max-width: 100%;
+    height: auto;
+    /* 画像の下に空白を無効に */
+    /* display: block; */
+}
+
+/* GIF画像 */
 .wrapper {
     position: relative;
     width: 100%;
@@ -22,10 +31,40 @@ body {
 
 .moving-gif {
     position: absolute;
-    top: 450%;
+    top: 50%;
+    /* デフォルト（スマホ用） */
     transform: translateY(-50%);
-    width: 150px;
-    animation: moveRight 5s linear infinite;
+    width: 200px;
+    animation: moveRight 9s linear infinite;
+}
+
+/* PCサイズ（992px以上）のときだけ top を 1300px に変更 */
+@media (min-width: 992px) {
+    .moving-gif {
+        top: 1300px;
+        transform: none;
+        /* translateY は無効にしておく */
+    }
+}
+
+@media (max-width: 767.98px) {
+    .fade-in-section {
+        margin-bottom: 5px;
+        /* ロゴ下の余白縮小 */
+    }
+
+    .wrapper {
+        height: 120px;
+        /* 高さ調整 */
+        margin-top: 5px;
+        /* 上マージン調整 */
+    }
+
+    .moving-gif {
+        top: 50%;
+        /* GIFのY位置調整 */
+        transform: translateY(-50%);
+    }
 }
 
 @keyframes moveRight {
@@ -38,11 +77,15 @@ body {
     }
 }
 
+
+
 .content {
     height: 1500px;
     /* スクロールテスト用の高さ */
-    background: linear-gradient(to bottom, #f0f0f0, #ccc);
+    /* background: linear-gradient(to bottom, #f0f0f0, #ccc); */
 }
+
+
 
 /* JAVA */
 .fade-in-section {
@@ -61,8 +104,9 @@ body {
     /* background-color: rgba(255, 253, 233, 1); */
 }
 
+/* 960px幅より大きくしたいコンテナ(トップ画像とトップに戻るボタン)はheroにしている */
 .container-hero {
-    max-width: 990px;
+    max-width: 1300px;
 }
 
 .row {
@@ -70,7 +114,7 @@ body {
     height: 100%;
 }
 
-/* ↓色 */
+/* ↓指定の背景色 */
 .bg-mycolor-usi {
     background-color: rgb(255, 254, 243);
     border-radius: 30% 30% 0% 0%;
@@ -106,3 +150,32 @@ body {
     background: #ffffff;
     padding: 10px 12px 30px;
 }
+
+/* トップページに戻る画像のサイズ */
+.back-to-top-img {
+    width: 150px;
+    /* デフォルトサイズ（PC表示） */
+    max-width: 100%;
+    height: auto;
+}
+
+/* トップ戻る画像　スマホサイズ（767px以下）でサイズ縮小 */
+@media (max-width: 767.98px) {
+    .back-to-top-img {
+        width: 80px;
+    }
+}
+
+
+/* リセットCSS */
+/* * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+} */
+
+/* セクションとマージンをリセット */
+/* section {
+    margin: 0;
+    padding: 0;
+} */
